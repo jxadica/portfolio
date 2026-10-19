@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khadija Janaliyeva | Web Developer for Local Businesses</title>
+<meta name="description" content="Khadija Janaliyeva is a web developer building fast, mobile-friendly websites for small businesses in the US: barbershops, salons, cafés and local services, connected to the booking tools they already use.">
+<meta property="og:title" content="Khadija Janaliyeva | Web Developer">
+<meta property="og:description" content="Websites for local businesses that get you found and booked.">
+<meta property="og:image" content="img/nue.jpg">
+<meta name="theme-color" content="#0f2a24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f3f5f1;     /* cool, slightly green off-white */
+  --card:#ffffff;
+  --ink:#0f2a24;       /* deep green-black */
+  --ink-2:#3d524c;
+  --muted:#6c7d77;
+  --line:#d9e0db;
+  --blue:#2457f5;      /* the "link" colour */
+  --blue-ink:#163aa8;
+  --ok:#1b8a57;
+  --star:#e8a31b;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 "Schibsted Grotesk",system-ui,sans-serif}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media (max-width:560px){.wrap{padding:0 16px}}
+p{margin:0 0 1em;max-width:62ch}
+h1,h2,h3{margin:0;letter-spacing:-.02em;line-height:1.05}
+h2{font-size:clamp(2rem,4.6vw,3.1rem);font-weight:800;margin-bottom:.4em}
+.lead{font-size:1.15rem;color:var(--ink-2)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;line-height:1.2;transition:background .15s,color .15s,border-color .15s;border:1.5px solid transparent;white-space:nowrap}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:#1c4037}
+.btn.ghost{border-color:var(--ink);color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* nav */
+nav.top{position:sticky;top:0;z-index:20;background:rgba(243,245,241,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+nav.top.scrolled{border-bottom-color:var(--line)}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.name{font-weight:800;font-size:18px;text-decoration:none;letter-spacing:-.01em}
+.name span{color:var(--muted);font-weight:500}
+nav.top ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:15px}
+nav.top ul a{text-decoration:none;color:var(--ink-2)}
+nav.top ul a:hover{color:var(--ink)}
+nav.top .btn{padding:10px 18px;font-size:15px}
+@media (max-width:820px){nav.top ul{display:none}.name span{display:none}}
+
+/* hero */
+.hero{padding:64px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.5rem,5.2vw,4rem);font-weight:850}
+.hero .lead{margin:24px 0 30px}
+.loc{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);margin-bottom:22px}
+.loc i{width:8px;height:8px;border-radius:50%;background:var(--ok);display:inline-block}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:44px}.hero{padding:40px 0 64px}}
+
+/* the signature: a local business listing that gains a website */
+.listing{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 1px 0 rgba(15,42,36,.04),0 24px 48px -28px rgba(15,42,36,.35);overflow:hidden;max-width:440px;justify-self:end;width:100%}
+.listing .map{height:120px;position:relative;background:
+  linear-gradient(90deg,transparent 0 46%,#fff 46% 49%,transparent 49%),
+  linear-gradient(0deg,transparent 0 58%,#fff 58% 62%,transparent 62%),
+  linear-gradient(160deg,transparent 0 30%,#fff 30% 32%,transparent 32%),
+  #e3ebe5}
+.listing .pin{position:absolute;left:47.5%;top:30%;width:26px;height:26px;margin-left:-13px;border-radius:50% 50% 50% 0;background:#d9453b;transform:rotate(-45deg);box-shadow:0 4px 8px rgba(0,0,0,.2)}
+.listing .pin::after{content:"";position:absolute;inset:8px;border-radius:50%;background:#fff}
+.listing .body{padding:20px 22px 8px}
+.listing h3{font-size:1.35rem;font-weight:800}
+.listing .meta{font-size:14px;color:var(--muted);margin:4px 0 0}
+.listing .meta b{color:var(--ink);font-weight:700}
+.listing .meta .st{color:var(--star);letter-spacing:1px}
+.listing ul{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--line)}
+.listing li{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.listing li:last-child{border-bottom:0}
+.listing li svg{width:18px;height:18px;flex:none;color:var(--muted)}
+.listing li.site{position:relative}
+.listing li.site .none{color:#b2453b}
+.listing li.site .yes{display:none;color:var(--blue);font-weight:600}
+.listing.has li.site .none{display:none}
+.listing.has li.site .yes{display:inline}
+.listing.has li.site svg{color:var(--blue)}
+.listing .flip{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 22px;background:#f7f9f7;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2)}
+.switch{position:relative;width:46px;height:26px;border-radius:999px;border:0;background:#c9d2cd;cursor:pointer;flex:none;transition:background .2s}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s}
+.switch[aria-checked="true"]{background:var(--ok)}
+.switch[aria-checked="true"]::after{transform:translateX(20px)}
+.listing .calls{display:flex;gap:8px;padding:0 22px 18px}
+.listing .calls span{flex:1;text-align:center;font-size:13px;font-weight:600;padding:9px 6px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2);transition:all .25s}
+.listing.has .calls span.b{background:var(--blue);border-color:var(--blue);color:#fff}
+.caption{font-size:13px;color:var(--muted);margin:12px 4px 0;max-width:440px;justify-self:end;width:100%}
+@media (max-width:900px){.listing,.caption{justify-self:start}}
+
+section{padding:88px 0}
+@media (max-width:640px){section{padding:64px 0}}
+.white{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.head p{margin:0;color:var(--ink-2);max-width:44ch}
+
+/* work */
+.work{display:grid;gap:28px}
+.project{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px}
+.project:nth-child(even) .shot{order:2}
+.shot{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#eef1ee;box-shadow:0 20px 40px -30px rgba(15,42,36,.5)}
+.shot .chrome{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#f1f3f1;border-bottom:1px solid var(--line)}
+.shot .chrome i{width:9px;height:9px;border-radius:50%;background:#d3d9d5;display:block}
+.shot .chrome em{font-style:normal;font-size:12px;color:var(--muted);margin-left:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot img{width:100%;height:auto;aspect-ratio:1280/585;object-fit:cover;object-position:top}
+.tag{display:inline-block;font-size:13px;font-weight:600;color:var(--ink-2);background:#eaf0ec;border-radius:999px;padding:4px 12px;margin-bottom:14px}
+.project h3{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:800;margin-bottom:12px}
+.project p{color:var(--ink-2)}
+.project ul{list-style:none;margin:0 0 22px;padding:0;font-size:15px;color:var(--ink-2)}
+.project li{padding:6px 0 6px 26px;position:relative}
+.project li::before{content:"";position:absolute;left:2px;top:12px;width:12px;height:7px;border-left:2px solid var(--ok);border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
+.stack{font-size:13px;color:var(--muted);margin:0 0 20px}
+.link{font-weight:600;color:var(--blue);text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
+.link:hover{color:var(--blue-ink)}
+@media (max-width:860px){.project{grid-template-columns:1fr;gap:24px;padding:18px}.project:nth-child(even) .shot{order:0}}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.svc div{padding-top:20px;border-top:2px solid var(--ink)}
+.svc h3{font-size:1.2rem;font-weight:750;margin-bottom:8px}
+.svc p{font-size:15px;color:var(--ink-2);margin:0}
+@media (max-width:900px){.svc{grid-template-columns:1fr 1fr;gap:28px 20px}}
+@media (max-width:520px){.svc{grid-template-columns:1fr}}
+
+/* process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;margin-bottom:18px}
+.steps h3{font-size:1.2rem;font-weight:750;margin-bottom:8px}
+.steps p{font-size:15px;color:var(--ink-2);margin:0}
+@media (max-width:820px){.steps{grid-template-columns:1fr}}
+
+/* about */
+.about .wrap{max-width:820px}
+.facts{list-style:none;margin:22px 0 0;padding:0;font-size:15px;color:var(--ink-2)}
+.facts li{padding:10px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:120px 1fr;gap:16px}
+.facts b{color:var(--ink);font-weight:600}
+
+/* contact */
+.contact{background:var(--ink);color:#fff;text-align:center}
+.contact h2{font-size:clamp(2.2rem,5.4vw,3.8rem)}
+.contact p{color:#b9cbc4;margin:0 auto 30px}
+.contact .actions{justify-content:center}
+.contact .mail{margin:-14px auto 26px;font-size:15px}
+.contact .mail a{color:#fff}
+.contact .btn.primary{background:#fff;color:var(--ink)}
+.contact .btn.primary:hover{background:#e6eeea}
+.contact .btn.ghost{border-color:rgba(255,255,255,.5);color:#fff}
+.contact .btn.ghost:hover{background:#fff;color:var(--ink)}
+footer{background:var(--ink);color:#8fa59d;font-size:14px;border-top:1px solid #23443c}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;padding-bottom:24px}
+footer a{color:#cfdcd7}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 6h18v12H3z M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .8.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7c-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4a22 22 0 0 0-2.5-.1c-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8z"/></symbol>
+</svg>
+
+<nav class="top" id="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="name" href="#top">Khadija Janaliyeva <span>· Web Developer</span></a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="btn primary" href="#contact">Get in touch</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="loc"><i></i>Based in Baku, working with US businesses remotely</span>
+      <h1>Websites for local businesses that get you found and booked.</h1>
+      <p class="lead">I'm Khadija, a web developer. Lots of great local shops have hundreds of five-star reviews but no website, so customers searching online end up somewhere else. I build fast, mobile-friendly sites that fix that, connected to the booking tools you already use.</p>
+      <div class="actions">
+        <a class="btn primary" href="#work">See my work</a>
+        <a class="btn ghost" href="#contact">Ask for a free preview</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="listing" id="listing">
+        <div class="map" aria-hidden="true"><span class="pin"></span></div>
+        <div class="body">
+          <h3>Your Business</h3>
+          <p class="meta"><b>4.8</b> <span class="st">★★★★★</span> 312 reviews · Barbershop</p>
+          <ul>
+            <li><svg><use href="#i-pin"/></svg>Main Street, Your Town</li>
+            <li><svg><use href="#i-clock"/></svg>Open · Closes 6 PM</li>
+            <li class="site"><svg><use href="#i-globe"/></svg><span class="none">No website</span><span class="yes">yourbusiness.com</span></li>
+          </ul>
+        </div>
+        <div class="calls" aria-hidden="true"><span>Directions</span><span>Call</span><span class="b">Website</span></div>
+        <div class="flip">
+          <span id="flipLabel">Without a website</span>
+          <button class="switch" id="flip" type="button" role="switch" aria-checked="false" aria-labelledby="flipLabel"></button>
+        </div>
+      </div>
+      <p class="caption">A typical map listing. Customers tap "Website" to check prices and book. When there isn't one, many move on to a shop that has one.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="white" id="work">
+  <div class="wrap">
+    <div class="head">
+      <h2>Selected work</h2>
+      <p>Sites I've built for businesses and organizations, from salons to student networks.</p>
+    </div>
+
+    <div class="work">
+      <article class="project">
+        <div class="shot">
+          <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><em>monumental-puffpuff-3b1afb.netlify.app</em></div>
+          <img src="img/blossom.jpg" alt="Blossom Beauty &amp; Spa homepage with the headline "Beauty, unhurried. Bloom into your best self." next to a spa photo" loading="lazy" width="1280" height="585">
+        </div>
+        <div>
+          <span class="tag">Salon &amp; spa · Concept</span>
+          <h3>Blossom Beauty &amp; Spa</h3>
+          <p>A website concept for a beauty salon and spa: exactly the kind of site I build for local businesses. Everything a customer needs to choose and book in under a minute.</p>
+          <ul>
+            <li>Services with starting prices for hair, nails, beauty and spa</li>
+            <li>"Book now" button, tap-to-call and directions on Google Maps</li>
+            <li>Opening hours, reviews and rating up front</li>
+          </ul>
+          <p class="stack">HTML · CSS · JavaScript</p>
+          <a class="link" href="https://monumental-puffpuff-3b1afb.netlify.app/" target="_blank" rel="noopener">View live site</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="shot">
+          <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><em>aegeebaki.org</em></div>
+          <img src="img/aegee.jpg" alt="AEGEE-Baki homepage with the headline "Some call it AEGEE-Baki, we call it home" over a photo of members" loading="lazy" width="1280" height="585">
+        </div>
+        <div>
+          <span class="tag">Organization · Live</span>
+          <h3>AEGEE-Baki</h3>
+          <p>The website of the Baku branch of AEGEE-Europe, one of Europe's largest student organizations, with a community of 1,000+ members.</p>
+          <ul>
+            <li>Member sign-up and log-in</li>
+            <li>Events and announcements, plus a projects section</li>
+            <li>Newsletter sign-up and links to all their social channels</li>
+          </ul>
+          <p class="stack">React</p>
+          <a class="link" href="https://aegeebaki.org/" target="_blank" rel="noopener">Visit aegeebaki.org</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="shot">
+          <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><em>beebrave.org</em></div>
+          <img src="img/beebrave.jpg" alt="BeeBrave homepage with the headline "Unleash Your Potential, Create Your Own Future!" and a photo of young people holding the Azerbaijani flag" loading="lazy" width="1280" height="585">
+        </div>
+        <div>
+          <span class="tag">Organization · WordPress</span>
+          <h3>BeeBrave</h3>
+          <p>A WordPress site for a youth development organization in Azerbaijan running mentorship, leadership and international programs.</p>
+          <ul>
+            <li>Programs, mentorship tracks and an expert directory</li>
+            <li>Application and "Join us" flows, with a member login</li>
+            <li>Two languages, Azerbaijani and English</li>
+            <li>FAQ, testimonials and impact numbers</li>
+          </ul>
+          <p class="stack">WordPress · Elementor</p>
+          <a class="link" href="https://beebrave.org/" target="_blank" rel="noopener">Visit beebrave.org</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="shot">
+          <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><em>jxadica.github.io/nue-ecom</em></div>
+          <img src="img/nue.jpg" alt="Nué skincare store homepage with the headline 'Skin, considered.' and a product photo" loading="lazy" width="1280" height="585">
+        </div>
+        <div>
+          <span class="tag">Online store</span>
+          <h3>Nué skincare</h3>
+          <p>A calm, premium storefront for a skincare brand: the kind of site a boutique, salon or local shop can sell from.</p>
+          <ul>
+            <li>Shop by category, product pages and cart</li>
+            <li>Wishlist and an admin area to manage products</li>
+            <li>Built mobile-first, so it reads well on any phone</li>
+          </ul>
+          <p class="stack">HTML · CSS · JavaScript</p>
+          <a class="link" href="https://jxadica.github.io/nue-ecom/" target="_blank" rel="noopener">View live site</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="shot">
+          <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><em>saas-analytics-dashboard.vercel.app</em></div>
+          <img src="img/techgear.jpg" alt="TechGear Pro analytics dashboard showing revenue, orders, customers and a revenue chart" loading="lazy" width="1280" height="585">
+        </div>
+        <div>
+          <span class="tag">Web app</span>
+          <h3>TechGear Pro dashboard</h3>
+          <p>A sales and inventory dashboard for a retail business. It shows I can build more than brochure sites when a business needs a real tool.</p>
+          <ul>
+            <li>Revenue, orders, customers and low-stock alerts at a glance</li>
+            <li>Interactive bar, line and pie charts</li>
+            <li>Light and dark mode, responsive layout</li>
+          </ul>
+          <p class="stack">React · Tailwind CSS</p>
+          <a class="link" href="https://saas-analytics-dashboard.vercel.app/" target="_blank" rel="noopener">View live demo</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <h2>What you get</h2>
+      <p>Everything a local business needs online, done for you. No templates, no page builder for you to wrestle with.</p>
+    </div>
+    <div class="svc">
+      <div><h3>A site made for phones</h3><p>Most of your customers find you on their phone. Your site loads fast and every button is easy to tap.</p></div>
+      <div><h3>Booking built in</h3><p>Connected to what you already use: Booksy, Square, Vagaro, Calendly, or a simple call and text button.</p></div>
+      <div><h3>Ready for Google</h3><p>Your hours, location, map and reviews set up so Google understands your business and sends people to you.</p></div>
+      <div><h3>Hosting and updates</h3><p>I handle your domain, hosting and small changes like new prices or holiday hours. You just run your business.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="white" id="process">
+  <div class="wrap">
+    <div class="head">
+      <h2>How it works</h2>
+      <p>You see your site before you pay for anything.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Free preview</h3><p>I build a preview of your website using your real details, so you can see exactly how it would look.</p></li>
+      <li><h3>Make it yours</h3><p>You send your photos, prices and changes. I update everything until you're happy with it.</p></li>
+      <li><h3>Go live</h3><p>I launch it on your own domain and connect it to Google and your booking. You get a link to share right away.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="white about" id="about">
+  <div class="wrap">
+    <div>
+      <h2>Hi, I'm Khadija</h2>
+      <p class="lead">I'm a web developer based in Baku, Azerbaijan. I've built websites for organizations and businesses here in Baku, and now I help small businesses in the US get a website that brings in customers.</p>
+      <p>Depending on what your business needs, I either code the site from scratch or build it on WordPress so you can edit it yourself. Either way it stays fast, and I can connect it to whatever your business already runs on. Working from Baku, I'm often answering messages before your morning starts.</p>
+      <ul class="facts">
+        <li><b>Education</b><span>B.Sc. Radio Technology and Telecommunications Engineering, Azerbaijan State Oil and Industry University (taught in English)</span></li>
+        <li><b>Front-end</b><span>HTML, CSS, JavaScript, React, Tailwind CSS</span></li>
+        <li><b>WordPress</b><span>WordPress, Elementor, theme customization, plugin setup and site maintenance</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Want to see your website?</h2>
+    <p>Send me your business name and city. I'll build a free preview, and you only pay if you love it.</p>
+    <p class="mail"><a href="mailto:kjanalyeffa@gmail.com">kjanalyeffa@gmail.com</a></p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:kjanalyeffa@gmail.com?subject=Free%20website%20preview&body=Business%20name%3A%0ACity%3A%0A"><svg><use href="#i-mail"/></svg>Email me</a>
+      <a class="btn ghost" href="https://www.facebook.com/profile.php?id=61595420376216" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg>Message on Facebook</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Khadija Janaliyeva</span>
+    <a href="https://github.com/jxadica" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>8)},{passive:true});
+
+  var card=document.getElementById('listing'), sw=document.getElementById('flip'), label=document.getElementById('flipLabel');
+  function set(on){card.classList.toggle('has',on);sw.setAttribute('aria-checked',on);label.textContent=on?'With a website':'Without a website';}
+  sw.addEventListener('click',function(){set(sw.getAttribute('aria-checked')!=='true')});
+  // one moment on load: the listing gains a website
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){ setTimeout(function(){set(true)},1600); } else { set(true); }
+})();
+</script>
+</body>
+</html>
